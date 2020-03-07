@@ -7,7 +7,7 @@ metadata:
 
 nodeGroups:
   - name: ng-1 #cluster node group name
-    instanceType: t2.micro #desired instance type
+    instanceType: t2.small #desired instance type
     desiredCapacity: 3 #desired nodes count / capacity
     ssh:
       allow: false # if true - will use ~/.ssh/id_rsa.pub as the default ssh key
