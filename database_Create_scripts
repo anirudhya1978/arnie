@@ -1,0 +1,23 @@
+CREATE TABLE `customer_details` (
+  `cust_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `customer_name` varchar(20) DEFAULT NULL,
+  `cusotmer_address` varchar(40) DEFAULT NULL,
+  `customer_phone` varchar(20) DEFAULT NULL,
+  PRIMARY KEY (`cust_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=10538 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `order_detail` (
+  `order_id` int(20) unsigned NOT NULL AUTO_INCREMENT,
+  `cust_id` int(11) DEFAULT NULL,
+  `order_item` varchar(40) DEFAULT NULL,
+  `order_value` decimal(11,2) DEFAULT NULL,
+  PRIMARY KEY (`order_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1496 DEFAULT CHARSET=latin1;
+
+CREATE TABLE `shipment_details` (
+  `Ship_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
+  `order_id` int(11) DEFAULT NULL,
+  `shipper` varchar(20) DEFAULT NULL,
+  `tracking_number` int(11) DEFAULT NULL,
+  PRIMARY KEY (`Ship_id`)
+) ENGINE=InnoDB AUTO_INCREMENT=1259 DEFAULT CHARSET=latin1;
