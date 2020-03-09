@@ -16,9 +16,9 @@ def get_customer_details(cust_id):
     
     logging.debug('we are getting into customer details')
     print("About to connect")
-    cnx = mysql.connector.connect(user='admin', password='Welcome1',
-                              host='customerdb.ceklihwabawd.us-east-1.rds.amazonaws.com',
-                              database='cust_order_db')
+    cnx = mysql.connector.connect(user='xxxx', password='xxxx',
+                              host='<your database host>',
+                              database='<your database name>')
     cursor = cnx.cursor()
     #cust_id = input("Enter the id of the Customer your want to Search for ")
     query = ("Select customer_name from customer_details where cust_id = " +cust_id)
@@ -51,9 +51,9 @@ def create_customer(customer_name, customer_add, customer_ph):
     customer_ph = customer_ph
     max_cust_id = 0
     
-    cnx2=mysql.connector.connect(user='admin', password='Welcome1',
-                              host='customerdb.ceklihwabawd.us-east-1.rds.amazonaws.com',
-                              database='cust_order_db')
+    cnx2=mysql.connector.connect(user='xxxx', password='xxxx',
+                              host='<Your database host name',
+                              database='your database name')
     
     cursor2=cnx2.cursor()
     query = ("Select max(cust_id) from customer_details")
@@ -85,9 +85,9 @@ def create_customer(customer_name, customer_add, customer_ph):
 def get_order_details(cust_id):
     
     order_cntr = 0 # will be used to check to naviagte if order exists
-    cnx = mysql.connector.connect(user='admin', password='Welcome1',
-                              host='customerdb.ceklihwabawd.us-east-1.rds.amazonaws.com',
-                              database='cust_order_db')
+    cnx = mysql.connector.connect(user='xxxx', password='xxxxx',
+                              host='<your database host>',
+                              database='yourdatabase name')
     cursor = cnx.cursor()
     
     find_order = ("Select order_item, order_value from order_detail where cust_id = " + cust_id)
@@ -110,9 +110,9 @@ def get_order_details(cust_id):
 #creates an order for a customer with a specific item and prince 
 #returns 0 if the customer does not exist, else returns the order id created 
 def create_order(cust_id, order_item, order_value):
-    cnx = mysql.connector.connect(user='admin', password='Welcome1',
-                              host='customerdb.ceklihwabawd.us-east-1.rds.amazonaws.com',
-                              database='cust_order_db')
+    cnx = mysql.connector.connect(user='xxxx', password='xxxx',
+                              host='<your host name>',
+                              database='your database name')
     cursor_outer = cnx.cursor()
 
 #We are going to check if the customer we want to create an order for exits 
@@ -170,9 +170,9 @@ def create_order(cust_id, order_item, order_value):
 def create_shipment(order_id, shipper_nm):
     
     max_ship_id = 0 # variable used for manipulating next ship id 
-    cnx = mysql.connector.connect(user='admin', password='Welcome1',
-                              host='customerdb.ceklihwabawd.us-east-1.rds.amazonaws.com',
-                              database='cust_order_db')
+    cnx = mysql.connector.connect(user='xxxx', password='xxxx',
+                              host='<your database host>',
+                              database='your database name')
     cursor = cnx.cursor()
     cursor_outer = cnx.cursor() # this cursor is just to check if the order exists
     query_outer = ("Select order_item from order_detail where order_id=" + str(order_id))
