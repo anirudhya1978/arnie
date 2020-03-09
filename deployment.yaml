@@ -27,7 +27,7 @@ spec:
     spec:
       containers:
         - name: ordersmod
-          image: anirudhya/monolith_breakdown
+          image: <change this to your docker repository>
           ports: 
           - containerPort: 5000
 ---
