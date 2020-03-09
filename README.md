@@ -1,4 +1,4 @@
-# arnie
+# Description of the Monolith
 
 This has the source code for the different files that you will need to create the monolith application. The code runs on an ec2 t2.small instance 
 
