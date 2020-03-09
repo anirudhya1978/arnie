@@ -1,5 +1,9 @@
 # Description of the Monolith
 
+We have a very simple application called “Orders”. We wrote this application in python. It has several functions. The goal of the application is to check if a customer exists, if an order exists, create a new customer and create a new order along with a shipment. It has a simple MySql database as the backend. It has a main function with a menu for the  user. This is the type of application we wrote in the early 2000s but, of course, not in python. 
+
+Next step, we pulled ourselves a few years ahead and decided that our application needs to be used by multiple different applications and we should be exposing functionality of this application as a service. We used flask to achieve this. This used to be a standard practice and is very prevalent within our customers when they invested in Services Oriented Architecture.
+
 This has the source code for the different files that you will need to create the monolith application. The code runs on an ec2 t2.small instance 
 
 # Here are the files that are included 
