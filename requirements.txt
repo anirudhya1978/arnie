@@ -1,0 +1,5 @@
+requests
+Flask
+random2
+mysql-connector-python
+PyMySQL
