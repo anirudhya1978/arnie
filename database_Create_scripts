@@ -1,10 +1,36 @@
+# Dump of table customer_details
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `customer_details`;
+
 CREATE TABLE `customer_details` (
   `cust_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
   `customer_name` varchar(20) DEFAULT NULL,
   `cusotmer_address` varchar(40) DEFAULT NULL,
   `customer_phone` varchar(20) DEFAULT NULL,
   PRIMARY KEY (`cust_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=10538 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `customer_details` WRITE;
+/*!40000 ALTER TABLE `customer_details` DISABLE KEYS */;
+
+INSERT INTO `customer_details` (`cust_id`, `customer_name`, `cusotmer_address`, `customer_phone`)
+VALUES
+	(10001,'Todd Osborne','188 Spear St, San Franisco 94405','925 548 7541'),
+	(10002,'Arnie Dasgupta','1234 London St, Dublin, CA 94568','111 222 3345'),
+	(10003,'Jack Lucas','1234 London St, Dublin, CA 94568','650 619 9534 '),
+	(10004,'Steve Hummer','1020 Twin Dolphin Drive, Redwood Shores,','123 123 4567'),
+	(10005,'Lew Olsen','1234 London St, Dublin CA 94568','924 548 3249'),
+	(10006,'John Warner','20 Twin Dolphin Drive, RedWood Shores CA','219 845 6751');
+
+/*!40000 ALTER TABLE `customer_details` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table order_detail
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `order_detail`;
 
 CREATE TABLE `order_detail` (
   `order_id` int(20) unsigned NOT NULL AUTO_INCREMENT,
@@ -12,7 +38,33 @@ CREATE TABLE `order_detail` (
   `order_item` varchar(40) DEFAULT NULL,
   `order_value` decimal(11,2) DEFAULT NULL,
   PRIMARY KEY (`order_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1496 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `order_detail` WRITE;
+/*!40000 ALTER TABLE `order_detail` DISABLE KEYS */;
+
+INSERT INTO `order_detail` (`order_id`, `cust_id`, `order_item`, `order_value`)
+VALUES
+	(1,10001,'Apple iPhone 11',799.00),
+	(1001,10001,'Apple Laptop',1299.95),
+	(1002,10001,'Apple Airpods ',159.99),
+	(1003,10001,'Movado watches ',199.99),
+	(1004,10003,'Macbook 13 inch',1899.00),
+	(1005,10003,'Flat Screen 85 inch',4599.00),
+	(1006,10003,'Apple iPad Pro',899.00),
+	(1007,10004,'Wireless charger pad',119.00),
+	(1008,10001,'Wireless charger pad',299.00),
+	(1009,10001,'Wireless charger pad',299.00),
+	(1010,10001,'Wine Glasses ',59.00);
+
+/*!40000 ALTER TABLE `order_detail` ENABLE KEYS */;
+UNLOCK TABLES;
+
+
+# Dump of table shipment_details
+# ------------------------------------------------------------
+
+DROP TABLE IF EXISTS `shipment_details`;
 
 CREATE TABLE `shipment_details` (
   `Ship_id` int(11) unsigned NOT NULL AUTO_INCREMENT,
@@ -20,4 +72,23 @@ CREATE TABLE `shipment_details` (
   `shipper` varchar(20) DEFAULT NULL,
   `tracking_number` int(11) DEFAULT NULL,
   PRIMARY KEY (`Ship_id`)
-) ENGINE=InnoDB AUTO_INCREMENT=1259 DEFAULT CHARSET=latin1;
+) ENGINE=InnoDB DEFAULT CHARSET=latin1;
+
+LOCK TABLES `shipment_details` WRITE;
+/*!40000 ALTER TABLE `shipment_details` DISABLE KEYS */;
+
+INSERT INTO `shipment_details` (`Ship_id`, `order_id`, `shipper`, `tracking_number`)
+VALUES
+	(1001,1001,'Fedex',7246),
+	(1002,1002,'USPS',444),
+	(1003,1003,'UPS',2892),
+	(1004,1004,'Fedex',4324),
+	(1005,1005,'UPS',2462),
+	(1006,1006,'USPS',4800),
+	(1007,1007,'Fedex',240),
+	(1008,1008,'Fedex',2216),
+	(1009,1009,'USPS',3312),
+	(1010,1010,'Fedex',2512);
+
+/*!40000 ALTER TABLE `shipment_details` ENABLE KEYS */;
+UNLOCK TABLES;
