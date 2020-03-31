@@ -26,10 +26,10 @@ For running it without a container, upgrade to python3 on your ec2 instance, ins
 
 ## Install New Relic APM (python agent) and infra on your ec2 instance. Refer to New Relic Documentation for the same. 
 
-# To run the program, run the following command from your ec2 instance. 
+## To run the program, run the following command from your ec2 instance. 
 NEW_RELIC_CONFIG_FILE=newrelic.ini newrelic-admin run-program python3 convert_api.py
 
-# Some additional files that you really don't need to run this as a monolith. They convert the entire monolith to a container managed through K8 (EKS)
+## Some additional files that you really don't need to run this as a monolith. They convert the entire monolith to a container managed through K8 (EKS)
 
 a. Dockerfile - self explanatory 
 b. requirement.txt - has all the dependencies that you will need
@@ -39,7 +39,7 @@ d. cluster.yaml - configuration file for creating a eks cluster using eksctl
 You would have to first create a docker container with the necessary changes to your orders.py (database related changes), upload that to your docker repository and update the image tag in your deployment.yaml before you can run it in containers. 
 
 
-# How to generate Load with the application
+## How to generate Load with the application
 
 I used Jmeter to Load test the application. Download Jemeter on your laptop and create the following tests. 
 
